@@ -1,4 +1,10 @@
 
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -77,4 +83,33 @@ box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.637)
 .disabled-cards {
   filter: saturate(0);
   opacity: 0.5;
+}
+
+#gameOver{
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.925);
+  
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.restart {
+  padding: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.congratulation{
+  color: rgb(253, 210, 19);
+  font-size: 35px;
+  padding-left: 50px;
 }

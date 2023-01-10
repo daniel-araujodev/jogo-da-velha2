@@ -31,18 +31,18 @@ let secondCard = '';
 
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-cards');
-
+  
   if (disabledCards.length === 20) {
+
+    clearInterval(this.loop)
+
+    let textNode = document.createTextNode(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML} segundos!`)
+    document.querySelector('.congratulation').appendChild(textNode)
     
+    let gameOverLayer = document.getElementById('gameOver')
+    gameOverLayer.style.display = 'flex'
     
-    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML} segundos`);
-    
-    clearInterval(this.loop);
-    timer.innerHTML = '00';
-    
-    loadGame();
-    startTimer();
-  }
+    }
 }
 
 const checkCards = () => {
@@ -92,6 +92,10 @@ const revealCard = ({target}) => {
 
 
 }
+
+
+
+
 
 const createCard = (elementCard) => {
   
@@ -147,4 +151,14 @@ window.onload = () => {
 
   startTimer();
   loadGame();
+}
+
+
+function restart(){
+  let gameOverLayer = document.getElementById("gameOver")
+  gameOverLayer.style.display = 'none';
+  clearInterval(this.loop);
+  timer.innerHTML = '00'  
+  loadGame();
+  startTimer();
 }
