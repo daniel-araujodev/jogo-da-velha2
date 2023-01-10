@@ -33,10 +33,15 @@ const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-cards');
 
   if (disabledCards.length === 20) {
-    clearInterval(this.loop);
+    
+    
     alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML} segundos`);
     
-    loadGame()
+    clearInterval(this.loop);
+    timer.innerHTML = '00';
+    
+    loadGame();
+    startTimer();
   }
 }
 
@@ -89,7 +94,9 @@ const revealCard = ({target}) => {
 }
 
 const createCard = (elementCard) => {
-  elementCard.innerHTML=''
+  
+  
+
   const card = createElement('div', 'card');
   const front = createElement('div', 'face front');
   const back = createElement('div', 'face back');
@@ -111,6 +118,9 @@ const createCard = (elementCard) => {
 }
 
 const loadGame = () => {
+
+  grid.innerHTML = '';
+
 
   const duplicateCards = [ ...elementCards, ...elementCards]
 
